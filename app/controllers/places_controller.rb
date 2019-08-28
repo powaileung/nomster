@@ -22,6 +22,13 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
   end
   # created a edit function on individual place page. 8/27/2019
+
+  def update
+    @place = Place.find(params[:id])
+    @place.update_attributes(place_params)
+    redirect_to root_path
+  end
+  # created a update function on individual place page. 8/27/2019
   
   private
 
