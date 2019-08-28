@@ -18,6 +18,11 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
   end
 
+  def edit
+    @place = Place.find(params[:id])
+  end
+  # created a edit function on individual place page. 8/27/2019
+  
   private
 
   def place_params
