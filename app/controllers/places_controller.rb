@@ -29,6 +29,13 @@ class PlacesController < ApplicationController
     redirect_to root_path
   end
   # created a update function on individual place page. 8/27/2019
+
+  def destroy
+    @place = Place.find(params[:id])
+    @place.destroy
+    redirect_to root_path
+  end
+  # created a delete function on individual place page. 8/27/2019
   
   private
 
