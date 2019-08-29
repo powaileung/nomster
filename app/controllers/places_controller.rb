@@ -11,9 +11,14 @@ class PlacesController < ApplicationController
   end
 
   def create
-    current_user.places.create(place_params)
-    redirect_to root_path
+    @place = current_user.places.create(place_params)
+    if @place.valid?
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end  
   end
+  # created a if statement to make sure right information validation. 8/28/2019
 
   def show
     @place = Place.find(params[:id])
@@ -36,10 +41,15 @@ class PlacesController < ApplicationController
     end
 
     @place.update_attributes(place_params)
-    redirect_to root_path
+    if @place.valid?
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end  
   end
   # created a update function on individual place page. 8/27/2019
   # created a update user permissions function on individual place page. 8/28/2019
+  # created a if statement to make sure right information validation. 8/28/2019
 
   def destroy
     @place = Place.find(params[:id])
