@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   # created a only logged in users can access this edit, update page. 8/28/2019
 
   def index
@@ -43,10 +43,15 @@ class PlacesController < ApplicationController
 
   def destroy
     @place = Place.find(params[:id])
+    if @place.user != current_user
+      return render plain: 'Not Allowed', status: :forbidden
+    end
+
     @place.destroy
     redirect_to root_path
   end
   # created a delete function on individual place page. 8/27/2019
+  # created a delete user permissions function on individual place page. 8/28/2019
   
   private
 
