@@ -1,5 +1,6 @@
 class PlacesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  # created a only logged in users can access this edit page. 8/28/2019
 
   def index
     @places = Place.paginate(page: params[:page], per_page: 10)
@@ -20,11 +21,19 @@ class PlacesController < ApplicationController
 
   def edit
     @place = Place.find(params[:id])
+
+    if @place.user != current_user
+      return render plain: 'Not Allowed', status: :forbidden
   end
   # created a edit function on individual place page. 8/27/2019
+  # created a edit user permissions function on individual place page. 8/28/2019
 
   def update
     @place = Place.find(params[:id])
+    if @place.user != current_user
+      return render plain: 'Not Allowed', status: :forbidden
+    end
+    
     @place.update_attributes(place_params)
     redirect_to root_path
   end
@@ -42,6 +51,8 @@ class PlacesController < ApplicationController
   def place_params
     params.require(:place).permit(:name, :description, :address)
   end
+
+end
 
 end
 
