@@ -1,5 +1,7 @@
 class Place < ApplicationRecord
   belongs_to :user
+  belongs_to :comments
+  
   geocoded_by :address
   after_validation :geocode
   
