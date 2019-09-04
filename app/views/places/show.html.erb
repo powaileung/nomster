@@ -92,12 +92,24 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCewzRBbt4rlyj7y2o3uB1RCRZ
     </div>
   <% end %>
 </div>
+
+<div class="clear"></div>
+<%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+  <%= f.input :picture %>
+  <%= f.submit "Add a photo", class: 'btn btn-primary' %>
+<% end %>
+<!-- created photo form to add photo 9/3/19 -->
+
+
+<h1>Pictures</h1>
+
+
+<% @place.photos.each do |photo| %>
+  <div>
+      <b><%= image_tag 'Delarosa.png', class: 'img-fluid' %></b>
+  </div>
+<% end %>
 </div>
-
-
-
-
-
 
 
 

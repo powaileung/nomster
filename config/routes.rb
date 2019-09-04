@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   root 'places#index'
   resources :places do
     resources :comments, only: :create
+    resources :photos, only: :create
+    # input resources :photos to nested underneath the place on 9/3/19
   end  
 end

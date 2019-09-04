@@ -23,8 +23,10 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @comment = Comment.new
+    @photo = Photo.new
   end
-  #created a comment page function. 8/30/2019
+  # created a comment page function. 8/30/2019
+  # created a photo page function. 9/3/2019
   
   def edit
     @place = Place.find(params[:id])
