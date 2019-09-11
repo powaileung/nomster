@@ -106,7 +106,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCewzRBbt4rlyj7y2o3uB1RCRZ
 
 <% @place.photos.each do |photo| %>
   <div>
-      <b><%= image_tag 'photo.picture.to_s', class: 'img-fluid' %></b>
+      <b><%= image_tag photo.picture.url, class: 'img-fluid' %></b>
   </div>
 <% end %>
 </div>
