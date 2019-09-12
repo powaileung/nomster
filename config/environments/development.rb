@@ -11,7 +11,7 @@ Rails.application.configure do
     password: ENV['GMAIL_PASSWORD']
   }
 
-  config.action_mailer.default_url_options = { host: 'localhost:3030' }
+  config.action_mailer.default_url_options = { host: 'https://nomster-powai-leung.herokuapp.com' }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

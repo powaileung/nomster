@@ -1,6 +1,6 @@
 class NotificationMailer < ApplicationMailer
   # set up a default from when email sent
-  default from: "no-rely@nomsterapp.com"
+  default from: "no-reply@nomsterapp.com"
   # add template
   def comment_added
     mail(to: "powaileung6@gmail.com", 
