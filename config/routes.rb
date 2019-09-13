@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :photos, only: :create
     # input resources :photos to nested underneath the place on 9/3/19
   end  
+  resources :users, only: :show
 end
