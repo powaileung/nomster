@@ -53,6 +53,13 @@
     <% if place.user.present? %>
       <small><%= place.user.email %></small>
     <% end %>
+
+    <% place.photos.each do |photo| %>
+    <div>
+      <b><%= image_tag photo.picture.url, class: 'img-fluid' %></b>
+    </div>
+    <% end %>  
+
   <% if place.comments.present? %>  
     <div class="col-12">
       <blockquote>
