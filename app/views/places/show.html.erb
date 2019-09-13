@@ -33,20 +33,15 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCewzRBbt4rlyj7y2o3uB1RCRZ
 
 <% end %>
 
-
-
-<br />
-
   <div class="float-right">
     <% if current_user && current_user == @place.user %>
       <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
       <%= link_to 'Delete', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
     <% end %>  
-  </div>
-
+  </div>  
 
 <div class="clear"></div>  
-
+<br /><br />
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -94,6 +89,8 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCewzRBbt4rlyj7y2o3uB1RCRZ
 </div>
 
 <div class="clear"></div>
+<br /><br />
+
 <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
   <%= f.input :picture %>
   <%= f.submit "Add a photo", class: 'btn btn-primary' %>
