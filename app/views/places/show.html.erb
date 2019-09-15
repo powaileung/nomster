@@ -35,7 +35,10 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCewzRBbt4rlyj7y2o3uB1RCRZ
 <br />
   <div class="float-right">
     <% if current_user && current_user == @place.user %>
-      <button type="button" class="btn btn-primary btn-md float-left" data-toggle="modal" data-target="#myPhotoModal">
+      <button type="button" class="btn btn-primary btn-md float-left" data-toggle="modal" data-target="#myModal">
+      Add a comment
+      </button>
+      <button type="button" class="btn btn-primary btn-md float-left left-margin" data-toggle="modal" data-target="#myPhotoModal">
         Add a photo
       </button>
       <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary left-margin' %>
@@ -72,9 +75,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCewzRBbt4rlyj7y2o3uB1RCRZ
 <div class="col-10 offset-1">
   <h1 class="float-left">Comments</h1>
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary btn-md float-right" data-toggle="modal" data-target="#myModal">
-  Add a comment
-  </button>
 </div>
 
 <div class="row">
